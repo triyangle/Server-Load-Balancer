@@ -33,7 +33,7 @@ USE_ENV = 'hive1.cs'
 for env in DATA:
     match = re.match(r'(hive.*)', env)
 
-    if match and 'users' in DATA[env]:
+    if match and DATA[env]:
         current_ema = ema(DATA[env]['load_avgs'])
 
         if current_ema <= MIN_EMA:
