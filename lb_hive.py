@@ -7,10 +7,10 @@ import re
 import subprocess
 from urllib.request import urlopen
 
-LOGIN = "" # Replace with your 3-letter login (xxx)
+LOGIN = "aay" # Replace with your 3-letter login (xxx)
 
 # fetches JSON
-HIVE_PAGE = 'https://hivemind-data.firebaseapp.com/latest.json'
+HIVE_PAGE = 'https://www.ocf.berkeley.edu/~hkn/hivemind/data/latest.json'
 PAGE = urlopen(HIVE_PAGE)
 DATA = json.loads(PAGE.read().decode())["data"]
 
@@ -44,6 +44,7 @@ for env in DATA:
                 MIN_USERS = current_users
                 MIN_EMA = current_ema
 
+print(USE_ENV)
 HOST = 'cs61c-%s@%s.berkeley.edu' % (LOGIN, USE_ENV)
 
-subprocess.call(["ssh %s" % HOST], shell=True)
+# subprocess.call(["ssh %s" % HOST], shell=True)
